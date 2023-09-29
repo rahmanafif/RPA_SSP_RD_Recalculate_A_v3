@@ -1,0 +1,235 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Extract_Data_Pivot_Excel" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ue="clr-namespace:UiPath.Excel;assembly=UiPath.Excel.Activities" xmlns:ueab="clr-namespace:UiPath.Excel.Activities.Business;assembly=UiPath.Excel.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property sap2010:Annotation.AnnotationText="Path excel that want to be extract data from pivot." Name="in_ExcelDataSourcePath" Type="InArgument(x:String)" />
+    <x:Property sap2010:Annotation.AnnotationText="Excel file name to extract data from pivot." Name="in_ExcelDataSourceName" Type="InArgument(x:String)" />
+    <x:Property sap2010:Annotation.AnnotationText="Sheet name of raw data without pivot." Name="in_RawSheetName" Type="InArgument(x:String)" />
+    <x:Property sap2010:Annotation.AnnotationText="Sheet name of data with pivot." Name="in_PivotSheetName" Type="InArgument(x:String)" />
+    <x:Property Name="in_KeyColumnSearch" Type="InArgument(x:String)" />
+    <x:Property Name="out_FirstCell" Type="OutArgument(x:String)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1239,2918</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>Extract_Data_Pivot_Excel_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="37">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.Excel.Activities.Business</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="76">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>UiPath.Database.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPathTeam.SharePoint.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>UiPathTeam.SharePoint</AssemblyReference>
+      <AssemblyReference>OfficeDevPnP.Core</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:Annotation.AnnotationText="Description: Extract data from pivot excel.&#xA;&#xA;PreCondition: N/A.&#xA;&#xA;PostCondition: Successfully to extract data from pivot excel." DisplayName="Extract_Data_Pivot_Excel" sap:VirtualizedContainerService.HintSize="666,1511" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <TryCatch DisplayName="Try Catch Extract Data Pivot Excel" sap:VirtualizedContainerService.HintSize="624,1423" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+      <TryCatch.Try>
+        <Sequence DisplayName="Try Extract Data Pivot Excel" sap:VirtualizedContainerService.HintSize="586,1195" sap2010:WorkflowViewState.IdRef="Sequence_3">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ueab:ExcelProcessScopeX DisplayAlerts="{x:Null}" ExistingProcessAction="{x:Null}" LaunchMethod="{x:Null}" LaunchTimeout="{x:Null}" MacroSettings="{x:Null}" ProcessMode="{x:Null}" DisplayName="Excel Process Scope Extract Data Pivot Excel" FileConflictResolution="None" sap:VirtualizedContainerService.HintSize="544,1107" sap2010:WorkflowViewState.IdRef="ExcelProcessScopeX_1" ShowExcelWindow="False">
+            <ueab:ExcelProcessScopeX.Body>
+              <ActivityAction x:TypeArguments="ui:IExcelProcess">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="ui:IExcelProcess" Name="ExcelProcessScopeTag" />
+                </ActivityAction.Argument>
+                <ueab:ExcelApplicationCard Password="{x:Null}" ReadFormatting="{x:Null}" AutoSave="False" CreateNewFile="False" DisplayName="Use Excel File Extract Data Pivot Excel" sap:VirtualizedContainerService.HintSize="510,1020" sap2010:WorkflowViewState.IdRef="ExcelApplicationCard_1" WorkbookPath="[in_ExcelDataSourcePath]">
+                  <ueab:ExcelApplicationCard.Body>
+                    <ActivityAction x:TypeArguments="ue:IWorkbookQuickHandle">
+                      <ActivityAction.Argument>
+                        <DelegateInArgument x:TypeArguments="ue:IWorkbookQuickHandle" Name="Excel" />
+                      </ActivityAction.Argument>
+                      <Sequence DisplayName="Process Use Excel File Extract Data Pivot Excel" sap:VirtualizedContainerService.HintSize="476,753" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                        <Sequence.Variables>
+                          <Variable x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="Found cell index of value 'Grand Total'" Name="FoundAtCell" />
+                          <Variable x:TypeArguments="x:String" Name="GetSelectedRange" />
+                          <Variable x:TypeArguments="scg:List(x:String)" sap2010:Annotation.AnnotationText="List of all sheets name." Name="ListSheets" />
+                        </Sequence.Variables>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:ExcelGetWorkbookSheets DisplayName="Get Workbook Sheets - Extact Data Pivot Excel" sap:VirtualizedContainerService.HintSize="434,25" sap2010:WorkflowViewState.IdRef="ExcelGetWorkbookSheets_1" Sheets="[ListSheets]" />
+                        <ueab:FindReplaceValueX ReplaceWith="{x:Null}" DisplayName="Find/Replace Value 'Grand Total' - Extract Data Pivot Excel" FoundAt="[FoundAtCell]" sap:VirtualizedContainerService.HintSize="434,234" sap2010:WorkflowViewState.IdRef="FindReplaceValueX_1" LookIn="Values" Operation="Find" ValueToFind="[&quot;Grand Total&quot;]" WhereToSearch="[Excel.Sheet(ListSheets(0).ToString).Range(&quot;A1:A10000&quot;)]" />
+                        <If Condition="[NOT String.IsNullOrWhiteSpace(FoundAtCell)]" DisplayName="If Found Value 'Grand Total' - Extract Data Pivot Excel" sap:VirtualizedContainerService.HintSize="434,52" sap2010:WorkflowViewState.IdRef="If_1">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <If.Then>
+                            <Sequence DisplayName="Process Found Value 'Grand Total' - Extract Data Pivot Excel" sap:VirtualizedContainerService.HintSize="486,1240" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <ueab:RenameSheetX DisplayName="Rename Sheet of Pivot - Extract Data Pivot Excel" From="[Excel.SelectedSheet]" sap:VirtualizedContainerService.HintSize="444,138" sap2010:WorkflowViewState.IdRef="RenameSheetX_2" To="[in_PivotSheetName]" />
+                              <ui:ExcelSelectRange DisplayName="Select Range Sheet of Pivot - Extract Data Pivot Excel" sap:VirtualizedContainerService.HintSize="444,60" sap2010:WorkflowViewState.IdRef="ExcelSelectRange_1" Range="[FoundAtCell]" SheetName="[in_PivotSheetName]" />
+                              <uix:NKeyboardShortcuts DelayBetweenShortcuts="{x:Null}" ActivateBefore="True" ClickBeforeMode="None" DisplayName="Keyboard Shortcuts Sheet of Pivot - Extract Data Pivot Excel" sap:VirtualizedContainerService.HintSize="444,179" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_1" InScope="[Excel]" ScopeIdentifier="Excel" Shortcuts="[d(hk)][d(ctrl)][k(right)][u(ctrl)][u(hk)]" Version="V1" />
+                              <ui:ExcelGetSelectedRange DisplayName="Get Selected Range - Extract Data Pivot Excel" sap:VirtualizedContainerService.HintSize="444,25" sap2010:WorkflowViewState.IdRef="ExcelGetSelectedRange_1" Range="[GetSelectedRange]" />
+                              <uix:NClick ClickType="Double" DisplayName="Double Click GrandTotal - Extract Data Pivot Excel" sap:VirtualizedContainerService.HintSize="444,157" sap2010:WorkflowViewState.IdRef="NClick_1" InScope="[Excel]" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="Excel" Version="V1">
+                                <uix:NClick.Target>
+                                  <uix:TargetAnchorable DesignTimeRectangle="140, 468, 81, 20" ElementType="Cell" FriendlyName="'17601'" FullSelectorArgument="[String.Format(&quot;&lt;uia automationid='Grid' name='Grid' role='data grid' /&gt;&lt;uia automationid='{0}' name='{0}' role='item' /&gt;&quot;, GetSelectedRange)]" FuzzySelectorArgument="&lt;uia automationid='Grid' name='Grid' role='data grid' /&gt;&lt;uia automationid='B42' name='B42' role='item' /&gt;" Guid="34fd19d6-a0ca-425a-9058-59527c1714a8" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAFUAAAAYCAYAAACLM7HoAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFHSURBVGhD7ZnRDYMgEIZZpWswQEdhgS7Cq4swiW8Oc+XgDkFQE5WkofcllzTiSfj8wYeq1+cNXMJ1pmmiXwCFVByQul7zPIdSaFaSeh+UyojUhxCpHRCpHRCpHRCpHRhG6mI1KKVA24WueJwJ1+oy4OgW7oulIbUvFnTWY7iBaM5HDCDVgQmLc2B1e5E5znhJZCiI0RbqDn4mjYSXw8LP5xto+y/nUkP6cjlZMnOCxDXN/Gx6F8T+fH8lNU8pC9a+J21/GqsT3Hq2SPXEbctOyy3toTMUx1vHAr4QkbqhErWzxbFfkpo4krpJKVKcr0jWL2cqs7/IkLxCErK5v/GFTxIrycjQUqOA9LGhWhcbx1uLj2lde5JEpBjLE30231BJ/R0qqcJ9CqmcUknrPURqBw6l4qDUtUr/UW2lCtdAmYxIfYhVKsAX7XlD2kYEEAYAAAAASUVORK5CYII=" InformativeScreenshot="51f622bc3c2d9a72568e022b1d666d69.png" ScopeSelectorArgument="&lt;wnd app='excel.exe' cls='XLMAIN' omit:title='Stock 202208.xlsx - Excel' /&gt;" SearchSteps="Selector" SelectionStrategy="UIA" />
+                                </uix:NClick.Target>
+                              </uix:NClick>
+                              <ueab:RenameSheetX DisplayName="Rename Sheet of Pivot - Extract Data Pivot Excel" From="[Excel.SelectedSheet]" sap:VirtualizedContainerService.HintSize="444,138" sap2010:WorkflowViewState.IdRef="RenameSheetX_3" To="[in_RawSheetName]" />
+                              <ueab:DeleteSheetX DisplayName="Delete Sheet of Pivot - Extract Data Pivot Excel" sap:VirtualizedContainerService.HintSize="444,90" sap2010:WorkflowViewState.IdRef="DeleteSheetX_1" Sheet="[Excel.Sheet(in_PivotSheetName)]" />
+                              <ueab:SaveExcelFileX DisplayName="Save Excel File of Pivot - Extract Data Pivot Excel" sap:VirtualizedContainerService.HintSize="444,85" sap2010:WorkflowViewState.IdRef="SaveExcelFileX_2" Workbook="[Excel]" />
+                            </Sequence>
+                          </If.Then>
+                          <If.Else>
+                            <Sequence DisplayName="Process Not Found Value 'Grand Total' - Extract Data Pivot Excel" sap:VirtualizedContainerService.HintSize="486,351" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <ueab:RenameSheetX DisplayName="Rename Sheet Into Raw - Extract Data Pivot Excel" From="[Excel.SelectedSheet]" sap:VirtualizedContainerService.HintSize="444,138" sap2010:WorkflowViewState.IdRef="RenameSheetX_1" To="[in_RawSheetName]" />
+                              <ueab:SaveExcelFileX DisplayName="Save Excel File Raw Data - Extract Data Pivot Excel" sap:VirtualizedContainerService.HintSize="444,85" sap2010:WorkflowViewState.IdRef="SaveExcelFileX_1" Workbook="[Excel]" />
+                            </Sequence>
+                          </If.Else>
+                        </If>
+                        <ueab:FindReplaceValueX ReplaceWith="{x:Null}" DisplayName="Find/Replace Value First Cell - Extract Data Pivot Excel" FoundAt="[out_FirstCell]" sap:VirtualizedContainerService.HintSize="434,234" sap2010:WorkflowViewState.IdRef="FindReplaceValueX_2" LookIn="Values" MatchEntireCellContents="True" Operation="Find" ValueToFind="[in_KeyColumnSearch]" WhereToSearch="[Excel.Sheet(in_RawSheetName)]">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </ueab:FindReplaceValueX>
+                      </Sequence>
+                    </ActivityAction>
+                  </ueab:ExcelApplicationCard.Body>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </ueab:ExcelApplicationCard>
+              </ActivityAction>
+            </ueab:ExcelProcessScopeX.Body>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ueab:ExcelProcessScopeX>
+        </Sequence>
+      </TryCatch.Try>
+      <TryCatch.Catches>
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="590,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ActivityAction x:TypeArguments="s:Exception">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+            </ActivityAction.Argument>
+            <Sequence DisplayName="Catches Exception Extract Data Pivot Excel" sap:VirtualizedContainerService.HintSize="376,245" sap2010:WorkflowViewState.IdRef="Sequence_2">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:LogMessage DisplayName="Log Message - Catches Exception Extract Data Pivot Excel" sap:VirtualizedContainerService.HintSize="334,92" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Error" Message="[&quot;Failed extract data pivot excel &quot; + in_ExcelDataSourceName + &quot;, &quot; + exception.Message]" />
+              <Throw DisplayName="Throw Exception Extract Data Pivot Excel" Exception="[New SystemException(&quot;Failed extract data pivot excel &quot; + in_ExcelDataSourceName + &quot;, &quot; + exception.Message)]" sap:VirtualizedContainerService.HintSize="334,25" sap2010:WorkflowViewState.IdRef="Throw_2" />
+            </Sequence>
+          </ActivityAction>
+        </Catch>
+      </TryCatch.Catches>
+    </TryCatch>
+  </Sequence>
+</Activity>

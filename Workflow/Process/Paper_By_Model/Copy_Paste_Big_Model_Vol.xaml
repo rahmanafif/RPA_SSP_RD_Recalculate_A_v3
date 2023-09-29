@@ -1,0 +1,512 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Input_Paper_By_Model" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:this="clr-namespace:" xmlns:ue="clr-namespace:UiPath.Excel;assembly=UiPath.Excel.Activities" xmlns:ueab="clr-namespace:UiPath.Excel.Activities.Business;assembly=UiPath.Excel.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property sap2010:Annotation.AnnotationText="Name of the process." Name="in_ProcessName" Type="InArgument(x:String)" />
+    <x:Property sap2010:Annotation.AnnotationText="Path location of file daily plan." Name="in_PathPaperByModel" Type="InArgument(x:String)" />
+    <x:Property sap2010:Annotation.AnnotationText="Sheet name of paper by model in daily plan file." Name="in_SheetPaperByModel" Type="InArgument(x:String)" />
+    <x:Property sap2010:Annotation.AnnotationText="Sheet name of paper in daily plan file." Name="in_SheetPaper" Type="InArgument(x:String)" />
+    <x:Property sap2010:Annotation.AnnotationText="Index to paste others model in sheets paper." Name="in_FindRangePaste" Type="InArgument(x:String)" />
+    <x:Property sap2010:Annotation.AnnotationText="Value to find for logic paste others model in sheets paper." Name="in_ValueToFindPaste" Type="InArgument(x:String)" />
+    <x:Property sap2010:Annotation.AnnotationText="Range to find big model to process copy paste into sheet paper." Name="in_FindRangeBigModel" Type="InArgument(x:String)" />
+    <x:Property sap2010:Annotation.AnnotationText="Index of header big model." Name="in_FindHeaderBigModel" Type="InArgument(x:String)" />
+    <x:Property sap2010:Annotation.AnnotationText="Adjust weekly composition or not if True then change logic index paste big model volume." Name="in_IsAdjustComposition" Type="InArgument(x:Boolean)" />
+    <x:Property sap2010:Annotation.AnnotationText="Start column name to process copy big model volume W1 in sheet paper by model." Name="in_ColumnStartCopyW1" Type="InArgument(x:String)" />
+    <x:Property sap2010:Annotation.AnnotationText="End column name to process copy big model volume W1 in sheet paper by model." Name="in_ColumnEndCopyW1" Type="InArgument(x:String)" />
+    <x:Property sap2010:Annotation.AnnotationText="Column name to process paste others model volume W1 into sheet paper." Name="in_ColumnW1" Type="InArgument(x:String)" />
+    <x:Property sap2010:Annotation.AnnotationText="Column name to process paste others model volume W3 into sheet paper." Name="in_ColumnW3" Type="InArgument(x:String)" />
+    <x:Property sap2010:Annotation.AnnotationText="Column name to process paste others model volume W4 into sheet paper." Name="in_ColumnW4" Type="InArgument(x:String)" />
+    <x:Property sap2010:Annotation.AnnotationText="Start column name to process copy big model volume W3 in sheet paper by model." Name="in_ColumnStartCopyW3" Type="InArgument(x:String)" />
+    <x:Property sap2010:Annotation.AnnotationText="Start column name to process copy big model volume W3 in sheet paper by model." Name="in_ColumnEndCopyW3" Type="InArgument(x:String)" />
+    <x:Property sap2010:Annotation.AnnotationText="Start column name to process copy big model volume W4 in sheet paper by model." Name="in_ColumnEndCopyW4" Type="InArgument(x:String)" />
+    <x:Property sap2010:Annotation.AnnotationText="Start column name to process copy big model volume W4 in sheet paper by model." Name="in_ColumnStartCopyW4" Type="InArgument(x:String)" />
+  </x:Members>
+  <this:Input_Paper_By_Model.in_ColumnStartCopyW1>
+    <InArgument x:TypeArguments="x:String" />
+  </this:Input_Paper_By_Model.in_ColumnStartCopyW1>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1398,5521</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>Input_Paper_By_Model_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.Excel.Activities.Business</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.Text.RegularExpressions</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>System.Data.Entity</AssemblyReference>
+      <AssemblyReference>OfficeDevPnP.Core</AssemblyReference>
+      <AssemblyReference>UiPathTeam.SharePoint</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Copy_Paste_Big_Model_Vol" sap:VirtualizedContainerService.HintSize="1408,5456" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="End range to copy big model volume W1 into sheet paper." Name="EndRangeCopyW1" />
+      <Variable x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="Start range to copy big model volume W1 into sheet paper." Name="StartRangeCopyW1" />
+      <Variable x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="Index of founded to paste big model volume in sheet paper." Name="FoundPasteRange" />
+      <Variable x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="Index of founded to copy big model volume in sheet paper by model." Name="FoundCopyRange" />
+      <Variable x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="Start range to copy big model volume W1 into sheet paper." Name="StartRangePasteW1" />
+      <Variable x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="End range to paste big model volume W1 into sheet paper." Name="EndRangePasteW1" />
+      <Variable x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="Start range to copy big model volume W3 into sheet paper." Name="StartRangeCopyW3" />
+      <Variable x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="End range to copy big model volume W3 into sheet paper." Name="EndRangeCopyW3" />
+      <Variable x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="Start range to copy big model volume W3 into sheet paper." Name="StartRangePasteW3" />
+      <Variable x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="End range to copy big model volume W3 into sheet paper." Name="EndRangePasteW3" />
+      <Variable x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="Start range to copy big model volume W4 into sheet paper." Name="StartRangeCopyW4" />
+      <Variable x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="End range to copy big model volume W4 into sheet paper." Name="EndRangeCopyW4" />
+      <Variable x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="Start range to copy big model volume W4 into sheet paper." Name="StartRangePasteW4" />
+      <Variable x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="End range to copy big model volume W4 into sheet paper." Name="EndRangePasteW4" />
+      <Variable x:TypeArguments="sd:DataTable" sap2010:Annotation.AnnotationText="Temporary data table." Default="[New System.Data.DataTable]" Name="dt_Temp" />
+      <Variable x:TypeArguments="x:Double" sap2010:Annotation.AnnotationText="Result of calculate SUM of W4." Name="SumW4" />
+      <Variable x:TypeArguments="x:Double" sap2010:Annotation.AnnotationText="Result of calculate SUM of W3." Name="SumW3" />
+      <Variable x:TypeArguments="x:Double" sap2010:Annotation.AnnotationText="Result of calculate SUM of W1." Name="SumW1" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <TryCatch DisplayName="Try Catch Copy Paste Big Model Vol" sap:VirtualizedContainerService.HintSize="1346,5345" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+      <TryCatch.Try>
+        <Sequence DisplayName="Try Copy Paste Big Model Vol" sap:VirtualizedContainerService.HintSize="1308,5117" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Switch x:TypeArguments="x:Boolean" DisplayName="Switch Started Log Is Adjust Composition - Copy Paste Big Model Vol" Expression="[in_IsAdjustComposition]" sap:VirtualizedContainerService.HintSize="1246,162" sap2010:WorkflowViewState.IdRef="Switch`1_2">
+            <ui:LogMessage x:Key="True" DisplayName="Log Message - Started Copy Paste Big Model Vol Adjust Composition" sap:VirtualizedContainerService.HintSize="334,92" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Started process copy paste big model volume adjust composition &quot; + in_ProcessName]" />
+            <ui:LogMessage x:Key="False" DisplayName="Log Message - Started Copy Paste Big Model Vol" sap:VirtualizedContainerService.HintSize="334,92" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Started process copy paste big model volume &quot; + in_ProcessName]" />
+          </Switch>
+          <ueab:ExcelProcessScopeX DisplayAlerts="{x:Null}" ExistingProcessAction="{x:Null}" LaunchMethod="{x:Null}" LaunchTimeout="{x:Null}" MacroSettings="{x:Null}" ProcessMode="{x:Null}" DisplayName="Excel Process Scope Copy Paste Big Model Vol" FileConflictResolution="None" sap:VirtualizedContainerService.HintSize="1246,4602" sap2010:WorkflowViewState.IdRef="ExcelProcessScopeX_1" ShowExcelWindow="False">
+            <ueab:ExcelProcessScopeX.Body>
+              <ActivityAction x:TypeArguments="ui:IExcelProcess">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="ui:IExcelProcess" Name="ExcelProcessScopeTag" />
+                </ActivityAction.Argument>
+                <Sequence DisplayName="Do Excel Process Scope Copy Paste Big Model Vol" sap:VirtualizedContainerService.HintSize="1212,4475" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ueab:ExcelApplicationCard Password="{x:Null}" ReadFormatting="{x:Null}" CreateNewFile="False" DisplayName="Use Excel File Copy Paste Big Model Vol" sap:VirtualizedContainerService.HintSize="1150,4364" sap2010:WorkflowViewState.IdRef="ExcelApplicationCard_1" WorkbookPath="[in_PathPaperByModel]">
+                    <ueab:ExcelApplicationCard.Body>
+                      <ActivityAction x:TypeArguments="ue:IWorkbookQuickHandle">
+                        <ActivityAction.Argument>
+                          <DelegateInArgument x:TypeArguments="ue:IWorkbookQuickHandle" Name="Excel" />
+                        </ActivityAction.Argument>
+                        <Sequence DisplayName="Do Use Excel File Copy Paste Big Model Vol" sap:VirtualizedContainerService.HintSize="1116,4097" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ueab:FindReplaceValueX ReplaceWith="{x:Null}" DisplayName="Find/Replace Value Header - Copy Paste Big Model Vol" FoundAt="[FoundCopyRange]" sap:VirtualizedContainerService.HintSize="1054,234" sap2010:WorkflowViewState.IdRef="FindReplaceValueX_1" LookIn="Values" Operation="Find" ValueToFind="[in_FindHeaderBigModel]" WhereToSearch="[Excel.Sheet(in_SheetPaperByModel).Range(in_FindRangeBigModel)]">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </ueab:FindReplaceValueX>
+                          <If Condition="[Not FoundCopyRange is Nothing]" DisplayName="If Finded Value Header - Copy Paste Big Model Vol" sap:VirtualizedContainerService.HintSize="1054,1882" sap2010:WorkflowViewState.IdRef="If_3">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <If.Then>
+                              <Sequence DisplayName="Then Finded Value Header - Copy Paste Big Model Vol" sap:VirtualizedContainerService.HintSize="506,1724" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <ueab:FindReplaceValueX ReplaceWith="{x:Null}" DisplayName="Find/Replace Value Copy - Copy Paste Big Model Vol" FoundAt="[FoundCopyRange]" sap:VirtualizedContainerService.HintSize="444,234" sap2010:WorkflowViewState.IdRef="FindReplaceValueX_2" LookIn="Values" Operation="Find" ValueToFind="[&quot;Big Model&quot;]" WhereToSearch="[Excel.Sheet(in_SheetPaperByModel).Range(FoundCopyRange)]">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                </ueab:FindReplaceValueX>
+                                <ui:MultipleAssign DisplayName="Multiple Assign Copy Range - Copy Paste Big Model Vol" sap:VirtualizedContainerService.HintSize="444,256" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+                                  <ui:MultipleAssign.AssignOperations>
+                                    <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
+                                      <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
+                                        <ui:AssignOperation.To>
+                                          <OutArgument x:TypeArguments="x:String">[StartRangeCopyW1]</OutArgument>
+                                        </ui:AssignOperation.To>
+                                        <ui:AssignOperation.Value>
+                                          <InArgument x:TypeArguments="x:String">[in_ColumnStartCopyW1 + (CInt(System.Text.RegularExpressions.Regex.Matches(FoundCopyRange,"[0-9]\d*(.[0-9]\d+)?")(0).ToString)).ToString]</InArgument>
+                                        </ui:AssignOperation.Value>
+                                      </ui:AssignOperation>
+                                      <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
+                                        <ui:AssignOperation.To>
+                                          <OutArgument x:TypeArguments="x:String">[EndRangeCopyW1]</OutArgument>
+                                        </ui:AssignOperation.To>
+                                        <ui:AssignOperation.Value>
+                                          <InArgument x:TypeArguments="x:String">[in_ColumnEndCopyW1 + (CInt(System.Text.RegularExpressions.Regex.Matches(FoundCopyRange,"[0-9]\d*(.[0-9]\d+)?")(0).ToString)).ToString]</InArgument>
+                                        </ui:AssignOperation.Value>
+                                      </ui:AssignOperation>
+                                      <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
+                                        <ui:AssignOperation.To>
+                                          <OutArgument x:TypeArguments="x:String">[StartRangeCopyW3]</OutArgument>
+                                        </ui:AssignOperation.To>
+                                        <ui:AssignOperation.Value>
+                                          <InArgument x:TypeArguments="x:String">[in_ColumnStartCopyW3 + (CInt(System.Text.RegularExpressions.Regex.Matches(FoundCopyRange,"[0-9]\d*(.[0-9]\d+)?")(0).ToString)).ToString]</InArgument>
+                                        </ui:AssignOperation.Value>
+                                      </ui:AssignOperation>
+                                      <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
+                                        <ui:AssignOperation.To>
+                                          <OutArgument x:TypeArguments="x:String">[EndRangeCopyW3]</OutArgument>
+                                        </ui:AssignOperation.To>
+                                        <ui:AssignOperation.Value>
+                                          <InArgument x:TypeArguments="x:String">[in_ColumnEndCopyW3 + (CInt(System.Text.RegularExpressions.Regex.Matches(FoundCopyRange,"[0-9]\d*(.[0-9]\d+)?")(0).ToString)).ToString]</InArgument>
+                                        </ui:AssignOperation.Value>
+                                      </ui:AssignOperation>
+                                      <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_5">
+                                        <ui:AssignOperation.To>
+                                          <OutArgument x:TypeArguments="x:String">[StartRangeCopyW4]</OutArgument>
+                                        </ui:AssignOperation.To>
+                                        <ui:AssignOperation.Value>
+                                          <InArgument x:TypeArguments="x:String">[in_ColumnStartCopyW4 + (CInt(System.Text.RegularExpressions.Regex.Matches(FoundCopyRange,"[0-9]\d*(.[0-9]\d+)?")(0).ToString)).ToString]</InArgument>
+                                        </ui:AssignOperation.Value>
+                                      </ui:AssignOperation>
+                                      <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_6">
+                                        <ui:AssignOperation.To>
+                                          <OutArgument x:TypeArguments="x:String">[EndRangeCopyW4]</OutArgument>
+                                        </ui:AssignOperation.To>
+                                        <ui:AssignOperation.Value>
+                                          <InArgument x:TypeArguments="x:String">[in_ColumnEndCopyW4 + (CInt(System.Text.RegularExpressions.Regex.Matches(FoundCopyRange,"[0-9]\d*(.[0-9]\d+)?")(0).ToString)).ToString]</InArgument>
+                                        </ui:AssignOperation.Value>
+                                      </ui:AssignOperation>
+                                    </scg:List>
+                                  </ui:MultipleAssign.AssignOperations>
+                                </ui:MultipleAssign>
+                                <ueab:ReadRangeX DisplayName="Read Range Big Model Vol W1 - Copy Paste Big Model Vol" HasHeaders="False" sap:VirtualizedContainerService.HintSize="444,168" sap2010:WorkflowViewState.IdRef="ReadRangeX_1" Range="[Excel.Sheet(in_SheetPaperByModel).Range(StartRangeCopyW1 + &quot;:&quot; + EndRangeCopyW1)]" ReadFormatting="RawValue" SaveTo="[dt_Temp]" VisibleOnly="False" />
+                                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Calculate_SUM W1 Copy Paste Big Model Vol workflow" sap:VirtualizedContainerService.HintSize="444,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Workflow\Process\Paper_By_Model\Calculate_SUM.xaml">
+                                  <ui:InvokeWorkflowFile.Arguments>
+                                    <InArgument x:TypeArguments="x:String" x:Key="in_DataTableName">SUM</InArgument>
+                                    <InArgument x:TypeArguments="sd:DataTable" x:Key="io_dt_CalculateSUM">[dt_temp]</InArgument>
+                                    <OutArgument x:TypeArguments="x:Double" x:Key="out_SumValue">[SumW1]</OutArgument>
+                                  </ui:InvokeWorkflowFile.Arguments>
+                                </ui:InvokeWorkflowFile>
+                                <ueab:ReadRangeX DisplayName="Read Range Big Model Vol W3 - Copy Paste Big Model Vol" HasHeaders="False" sap:VirtualizedContainerService.HintSize="444,168" sap2010:WorkflowViewState.IdRef="ReadRangeX_2" Range="[Excel.Sheet(in_SheetPaperByModel).Range(StartRangeCopyW3 + &quot;:&quot; + EndRangeCopyW3)]" ReadFormatting="RawValue" SaveTo="[dt_Temp]" VisibleOnly="False" />
+                                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Calculate_SUM W3 Copy Paste Big Model Vol workflow" sap:VirtualizedContainerService.HintSize="444,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Workflow\Process\Paper_By_Model\Calculate_SUM.xaml">
+                                  <ui:InvokeWorkflowFile.Arguments>
+                                    <InArgument x:TypeArguments="x:String" x:Key="in_DataTableName">SUM</InArgument>
+                                    <InArgument x:TypeArguments="sd:DataTable" x:Key="io_dt_CalculateSUM">[dt_temp]</InArgument>
+                                    <OutArgument x:TypeArguments="x:Double" x:Key="out_SumValue">[SumW3]</OutArgument>
+                                  </ui:InvokeWorkflowFile.Arguments>
+                                </ui:InvokeWorkflowFile>
+                                <ueab:ReadRangeX DisplayName="Read Range Big Model Vol W4 - Copy Paste Big Model Vol" HasHeaders="False" sap:VirtualizedContainerService.HintSize="444,168" sap2010:WorkflowViewState.IdRef="ReadRangeX_3" Range="[Excel.Sheet(in_SheetPaperByModel).Range(StartRangeCopyW4 + &quot;:&quot; + EndRangeCopyW4)]" ReadFormatting="RawValue" SaveTo="[dt_Temp]" VisibleOnly="False" />
+                                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Calculate_SUM W4 Copy Paste Big Model Vol workflow" sap:VirtualizedContainerService.HintSize="444,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Workflow\Process\Paper_By_Model\Calculate_SUM.xaml">
+                                  <ui:InvokeWorkflowFile.Arguments>
+                                    <InArgument x:TypeArguments="x:String" x:Key="in_DataTableName">SUM</InArgument>
+                                    <InArgument x:TypeArguments="sd:DataTable" x:Key="io_dt_CalculateSUM">[dt_temp]</InArgument>
+                                    <OutArgument x:TypeArguments="x:Double" x:Key="out_SumValue">[SumW4]</OutArgument>
+                                  </ui:InvokeWorkflowFile.Arguments>
+                                </ui:InvokeWorkflowFile>
+                              </Sequence>
+                            </If.Then>
+                            <If.Else>
+                              <Sequence DisplayName="Else Finded Value Header - Copy Paste Big Model Vol" sap:VirtualizedContainerService.HintSize="450,136" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <Throw DisplayName="Throw Exception Value Header - Copy Paste Big Model Vol" Exception="[New&#x9;SystemException(&quot;Index range header of process copy big model volume in &quot; + in_ProcessName +&quot; is not founded&quot;)]" sap:VirtualizedContainerService.HintSize="388,25" sap2010:WorkflowViewState.IdRef="Throw_2" />
+                              </Sequence>
+                            </If.Else>
+                          </If>
+                          <ueab:FindReplaceValueX ReplaceWith="{x:Null}" DisplayName="Find/Replace Value Header Paste - Copy Paste Big Model Vol" FoundAt="[FoundPasteRange]" sap:VirtualizedContainerService.HintSize="1054,234" sap2010:WorkflowViewState.IdRef="FindReplaceValueX_3" LookIn="Values" MatchCase="True" MatchEntireCellContents="True" Operation="Find" ValueToFind="[in_ValueToFindPaste]" WhereToSearch="[Excel.Sheet(in_SheetPaper).Range(in_FindRangePaste)]">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </ueab:FindReplaceValueX>
+                          <If Condition="[Not FoundPasteRange is Nothing]" DisplayName="If Finded Value Header Paste - Copy Paste Big Model Vol" sap:VirtualizedContainerService.HintSize="1054,830" sap2010:WorkflowViewState.IdRef="If_2">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <If.Then>
+                              <Sequence DisplayName="Then Finded Value Header Paste - Copy Paste Others Model" sap:VirtualizedContainerService.HintSize="559,672" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <Switch x:TypeArguments="x:Boolean" DisplayName="Switch Is Adjust Composition - Copy Paste Big Model Vol" Expression="[in_IsAdjustComposition]" sap:VirtualizedContainerService.HintSize="497,265" sap2010:WorkflowViewState.IdRef="Switch`1_1">
+                                  <Sequence x:Key="True" DisplayName="True Is Adjust Composition - Copy Paste Big Model Vol" sap:VirtualizedContainerService.HintSize="450,81" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                                    <Sequence.Variables>
+                                      <Variable x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="Start range to paste big model volume composition in sheet paper." Name="StartFoundPasteRange" />
+                                      <Variable x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="End range to paste big model volume composition in sheet paper." Name="EndFoundPasteRange" />
+                                    </Sequence.Variables>
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <Assign DisplayName="Assign StartFoundPasteRange - Copy Paste Big Model Vol" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_7">
+                                      <Assign.To>
+                                        <OutArgument x:TypeArguments="x:String">[StartFoundPasteRange]</OutArgument>
+                                      </Assign.To>
+                                      <Assign.Value>
+                                        <InArgument x:TypeArguments="x:String" xml:space="preserve">[System.Text.RegularExpressions.Regex.Replace(FoundPasteRange ,"\d", "")  + (CInt(System.Text.RegularExpressions.Regex.Matches(FoundPasteRange,"[0-9]\d*(.[0-9]\d+)?")(0).ToString)+1).ToString]</InArgument>
+                                      </Assign.Value>
+                                    </Assign>
+                                    <Assign DisplayName="Assign EndFoundPasteRange - Copy Paste Big Model Vol" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_8">
+                                      <Assign.To>
+                                        <OutArgument x:TypeArguments="x:String">[EndFoundPasteRange]</OutArgument>
+                                      </Assign.To>
+                                      <Assign.Value>
+                                        <InArgument x:TypeArguments="x:String">[System.Text.RegularExpressions.Regex.Replace(FoundPasteRange ,"\d", "") + "10000"]</InArgument>
+                                      </Assign.Value>
+                                    </Assign>
+                                    <ueab:FindReplaceValueX ReplaceWith="{x:Null}" DisplayName="Find/Replace Value Paste - Copy Paste Big Model Vol" FoundAt="[FoundPasteRange]" sap:VirtualizedContainerService.HintSize="434,234" sap2010:WorkflowViewState.IdRef="FindReplaceValueX_4" LookIn="Values" Operation="Find" ValueToFind="[in_ValueToFindPaste]" WhereToSearch="[Excel.Sheet(in_SheetPaper).Range(StartFoundPasteRange + &quot;:&quot; + EndFoundPasteRange)]">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                    </ueab:FindReplaceValueX>
+                                  </Sequence>
+                                </Switch>
+                                <ui:MultipleAssign DisplayName="Multiple Assign Paste Range - Copy Paste Big Model Vol" sap:VirtualizedContainerService.HintSize="497,256" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
+                                  <ui:MultipleAssign.AssignOperations>
+                                    <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
+                                      <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_7">
+                                        <ui:AssignOperation.To>
+                                          <OutArgument x:TypeArguments="x:String">[StartRangePasteW1]</OutArgument>
+                                        </ui:AssignOperation.To>
+                                        <ui:AssignOperation.Value>
+                                          <InArgument x:TypeArguments="x:String">[in_ColumnW1 + (CInt(System.Text.RegularExpressions.Regex.Matches(FoundPasteRange,"[0-9]\d*(.[0-9]\d+)?")(0).ToString)).ToString]</InArgument>
+                                        </ui:AssignOperation.Value>
+                                      </ui:AssignOperation>
+                                      <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_8">
+                                        <ui:AssignOperation.To>
+                                          <OutArgument x:TypeArguments="x:String">[EndRangePasteW1]</OutArgument>
+                                        </ui:AssignOperation.To>
+                                        <ui:AssignOperation.Value>
+                                          <InArgument x:TypeArguments="x:String">[in_ColumnW1 + (CInt(System.Text.RegularExpressions.Regex.Matches(FoundPasteRange,"[0-9]\d*(.[0-9]\d+)?")(0).ToString)).ToString]</InArgument>
+                                        </ui:AssignOperation.Value>
+                                      </ui:AssignOperation>
+                                      <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_9">
+                                        <ui:AssignOperation.To>
+                                          <OutArgument x:TypeArguments="x:String">[StartRangePasteW3]</OutArgument>
+                                        </ui:AssignOperation.To>
+                                        <ui:AssignOperation.Value>
+                                          <InArgument x:TypeArguments="x:String">[in_ColumnW3 + (CInt(System.Text.RegularExpressions.Regex.Matches(FoundPasteRange,"[0-9]\d*(.[0-9]\d+)?")(0).ToString)).ToString]</InArgument>
+                                        </ui:AssignOperation.Value>
+                                      </ui:AssignOperation>
+                                      <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_10">
+                                        <ui:AssignOperation.To>
+                                          <OutArgument x:TypeArguments="x:String">[EndRangePasteW3]</OutArgument>
+                                        </ui:AssignOperation.To>
+                                        <ui:AssignOperation.Value>
+                                          <InArgument x:TypeArguments="x:String">[in_ColumnW3 + (CInt(System.Text.RegularExpressions.Regex.Matches(FoundPasteRange,"[0-9]\d*(.[0-9]\d+)?")(0).ToString)).ToString]</InArgument>
+                                        </ui:AssignOperation.Value>
+                                      </ui:AssignOperation>
+                                      <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_11">
+                                        <ui:AssignOperation.To>
+                                          <OutArgument x:TypeArguments="x:String">[StartRangePasteW4]</OutArgument>
+                                        </ui:AssignOperation.To>
+                                        <ui:AssignOperation.Value>
+                                          <InArgument x:TypeArguments="x:String">[in_ColumnW4 + (CInt(System.Text.RegularExpressions.Regex.Matches(FoundPasteRange,"[0-9]\d*(.[0-9]\d+)?")(0).ToString)).ToString]</InArgument>
+                                        </ui:AssignOperation.Value>
+                                      </ui:AssignOperation>
+                                      <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_12">
+                                        <ui:AssignOperation.To>
+                                          <OutArgument x:TypeArguments="x:String">[EndRangePasteW4]</OutArgument>
+                                        </ui:AssignOperation.To>
+                                        <ui:AssignOperation.Value>
+                                          <InArgument x:TypeArguments="x:String">[in_ColumnW4 + (CInt(System.Text.RegularExpressions.Regex.Matches(FoundPasteRange,"[0-9]\d*(.[0-9]\d+)?")(0).ToString)).ToString]</InArgument>
+                                        </ui:AssignOperation.Value>
+                                      </ui:AssignOperation>
+                                    </scg:List>
+                                  </ui:MultipleAssign.AssignOperations>
+                                </ui:MultipleAssign>
+                              </Sequence>
+                            </If.Then>
+                            <If.Else>
+                              <Sequence DisplayName="Else Finded Value Header Paste - Copy Paste Big Model Vol" sap:VirtualizedContainerService.HintSize="450,136" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <Throw DisplayName="Throw Exception Value Header Paste - Copy Paste Big Model Vol" Exception="[New&#x9;SystemException(&quot;Index range header of process paste big model volume in &quot; + in_ProcessName +&quot; is not founded&quot;)]" sap:VirtualizedContainerService.HintSize="388,25" sap2010:WorkflowViewState.IdRef="Throw_3" />
+                              </Sequence>
+                            </If.Else>
+                          </If>
+                          <ueab:WriteCellX Cell="[Excel.Sheet(in_SheetPaper).Cell(StartRangePasteW1)]" DisplayName="Write Cell Sum W1 - Copy Paste Big Model Vol" sap:VirtualizedContainerService.HintSize="1054,158" sap2010:WorkflowViewState.IdRef="WriteCellX_1" Value="[SumW1]" />
+                          <ueab:WriteCellX Cell="[Excel.Sheet(in_SheetPaper).Cell(StartRangePasteW3)]" DisplayName="Write Cell Sum W3 - Copy Paste Big Model Vol" sap:VirtualizedContainerService.HintSize="1054,158" sap2010:WorkflowViewState.IdRef="WriteCellX_2" Value="[SumW3]" />
+                          <ueab:WriteCellX Cell="[Excel.Sheet(in_SheetPaper).Cell(StartRangePasteW4)]" DisplayName="Write Cell Sum W4 - Copy Paste Big Model Vol" sap:VirtualizedContainerService.HintSize="1054,158" sap2010:WorkflowViewState.IdRef="WriteCellX_3" Value="[SumW4]" />
+                          <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="1054,52" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+                            <ui:CommentOut.Body>
+                              <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="450,163" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <ueab:CopyPasteRangeX DestinationRange="[Excel.Sheet(in_SheetPaper).Range(StartRangePasteW1 + &quot;:&quot; + EndRangePasteW1)]" DisplayName="Copy/Paste Range - Copy Paste Big Model Vol" ExcludeHeaders="True" sap:VirtualizedContainerService.HintSize="388,52" sap2010:WorkflowViewState.IdRef="CopyPasteRangeX_1" PasteOptions="Values" SourceRange="[Excel.Sheet(in_SheetPaperByModel).Range(StartRangeCopyW1 + &quot;:&quot; + EndRangeCopyW1)]" Transpose="False">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                </ueab:CopyPasteRangeX>
+                              </Sequence>
+                            </ui:CommentOut.Body>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </ui:CommentOut>
+                        </Sequence>
+                      </ActivityAction>
+                    </ueab:ExcelApplicationCard.Body>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ueab:ExcelApplicationCard>
+                </Sequence>
+              </ActivityAction>
+            </ueab:ExcelProcessScopeX.Body>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ueab:ExcelProcessScopeX>
+          <Switch x:TypeArguments="x:Boolean" DisplayName="Switch Finished Log Is Adjust Composition - Copy Paste Big Model Vol" Expression="[in_IsAdjustComposition]" sap:VirtualizedContainerService.HintSize="1246,162" sap2010:WorkflowViewState.IdRef="Switch`1_3">
+            <ui:LogMessage x:Key="True" DisplayName="Log Message - Finished Copy Paste Big Model Vol Adjust Composition" sap:VirtualizedContainerService.HintSize="334,92" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;Finished process copy paste big model volume adjust composition &quot; + in_ProcessName]" />
+            <ui:LogMessage x:Key="False" DisplayName="Log Message - Finished Copy Paste Big Model Vol" sap:VirtualizedContainerService.HintSize="334,92" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Finished process copy paste big model volume &quot; + in_ProcessName]" />
+          </Switch>
+        </Sequence>
+      </TryCatch.Try>
+      <TryCatch.Catches>
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="1101,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ActivityAction x:TypeArguments="s:Exception">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+            </ActivityAction.Argument>
+            <Sequence DisplayName="Catches Exception Input Paper By Model" sap:VirtualizedContainerService.HintSize="539,541" sap2010:WorkflowViewState.IdRef="Sequence_3">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <Switch x:TypeArguments="x:Boolean" DisplayName="Switch Exception Is Adjust Composition - Copy Paste Big Model Vol" Expression="[in_IsAdjustComposition]" sap:VirtualizedContainerService.HintSize="497,453" sap2010:WorkflowViewState.IdRef="Switch`1_4">
+                <Sequence x:Key="True" DisplayName="True Exception Is Adjust Composition - Copy Paste Percentage Big Model" sap:VirtualizedContainerService.HintSize="376,245" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:LogMessage DisplayName="Log Message - Catches Exception Copy Paste Big Model Vol Adjust Composition" sap:VirtualizedContainerService.HintSize="334,92" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;Error occurred in process copy paste big model volume adjust composition &quot; + in_ProcessName + &quot;: &quot; + exception.Message]" />
+                  <Throw DisplayName="Throw Exception Copy Paste Big Model Vol Adjust Composition" Exception="[New SystemException(&quot;Failed copy paste percentage big model volume adjust composition &quot; + in_ProcessName + &quot; , &quot; + exception.Message)]" sap:VirtualizedContainerService.HintSize="334,25" sap2010:WorkflowViewState.IdRef="Throw_4" />
+                </Sequence>
+                <Sequence x:Key="False" DisplayName="False Exception Is Adjust Composition - Copy Paste Big Model Vol" sap:VirtualizedContainerService.HintSize="376,245" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:LogMessage DisplayName="Log Message - Catches Exception Copy Paste Big Model Vol" sap:VirtualizedContainerService.HintSize="334,92" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Error occurred in process copy paste big model volume &quot; + in_ProcessName + &quot;: &quot; + exception.Message]" />
+                  <Throw DisplayName="Throw Exception Copy Paste Big Model Vol" Exception="[New SystemException(&quot;Failed copy paste big model volume &quot; + in_ProcessName + &quot; , &quot; + exception.Message)]" sap:VirtualizedContainerService.HintSize="334,25" sap2010:WorkflowViewState.IdRef="Throw_1" />
+                </Sequence>
+              </Switch>
+            </Sequence>
+          </ActivityAction>
+        </Catch>
+      </TryCatch.Catches>
+    </TryCatch>
+  </Sequence>
+</Activity>
