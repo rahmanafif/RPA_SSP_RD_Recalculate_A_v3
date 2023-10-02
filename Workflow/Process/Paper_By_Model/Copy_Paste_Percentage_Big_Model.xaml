@@ -13,14 +13,18 @@
     <x:Property sap2010:Annotation.AnnotationText="Start column name to process write percentage big model into sheet paper by model." Name="in_ColumnEndWriteBigModel" Type="InArgument(x:String)" />
     <x:Property sap2010:Annotation.AnnotationText="Start column name to process read percentage big model in sheet paper by model." Name="in_ColumnStartReadBigModel" Type="InArgument(x:String)" />
     <x:Property sap2010:Annotation.AnnotationText="End column name to process read percentage big model in sheet paper by model." Name="in_ColumnEndReadBigModel" Type="InArgument(x:String)" />
+    <x:Property Name="in_AdditionalCopyRange" Type="InArgument(x:String)" />
   </x:Members>
   <this:Input_Paper_By_Model.in_ColumnStartReadBigModel>
     <InArgument x:TypeArguments="x:String" />
   </this:Input_Paper_By_Model.in_ColumnStartReadBigModel>
+  <this:Input_Paper_By_Model.in_AdditionalCopyRange>
+    <InArgument x:TypeArguments="x:String" />
+  </this:Input_Paper_By_Model.in_AdditionalCopyRange>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1398,3996</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1437,5088</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Input_Paper_By_Model_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -94,9 +98,11 @@
       <AssemblyReference>System.Data.Entity</AssemblyReference>
       <AssemblyReference>OfficeDevPnP.Core</AssemblyReference>
       <AssemblyReference>UiPathTeam.SharePoint</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Copy_Paste_Percentage_Big_Model" sap:VirtualizedContainerService.HintSize="1408,3931" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Copy_Paste_Percentage_Big_Model" sap:VirtualizedContainerService.HintSize="1447,5023" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="End range to read percentage big model composition in sheet paper." Name="EndRangeReadBigModel" />
       <Variable x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="Start range to read percentage big model composition in sheet paper." Name="StartRangeReadBigModel" />
@@ -111,9 +117,9 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <TryCatch DisplayName="Try Catch Copy Paste Percentage Big Model" sap:VirtualizedContainerService.HintSize="1346,3820" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch DisplayName="Try Catch Copy Paste Percentage Big Model" sap:VirtualizedContainerService.HintSize="1385,4912" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <TryCatch.Try>
-        <Sequence DisplayName="Try Input Paper By Model" sap:VirtualizedContainerService.HintSize="1308,3592" sap2010:WorkflowViewState.IdRef="Sequence_2">
+        <Sequence DisplayName="Try Input Paper By Model" sap:VirtualizedContainerService.HintSize="1308,4684" sap2010:WorkflowViewState.IdRef="Sequence_2">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -129,30 +135,33 @@
             <ui:LogMessage x:Key="True" DisplayName="Log Message - Started Copy Paste Percentage Big Model Adjust Composition" sap:VirtualizedContainerService.HintSize="334,92" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Started process copy paste percentage big model adjust composition &quot; + in_ProcessName]" />
             <ui:LogMessage x:Key="False" DisplayName="Log Message - Started Copy Paste Percentage Big Model" sap:VirtualizedContainerService.HintSize="334,92" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Started process copy paste percentage big model &quot; + in_ProcessName]" />
           </Switch>
-          <ueab:ExcelProcessScopeX DisplayAlerts="{x:Null}" ExistingProcessAction="{x:Null}" LaunchMethod="{x:Null}" LaunchTimeout="{x:Null}" MacroSettings="{x:Null}" ProcessMode="{x:Null}" DisplayName="Excel Process Scope Copy Paste Percentage Big Model" FileConflictResolution="None" sap:VirtualizedContainerService.HintSize="1246,2939" sap2010:WorkflowViewState.IdRef="ExcelProcessScopeX_1" ShowExcelWindow="False">
+          <ueab:ExcelProcessScopeX DisplayAlerts="{x:Null}" ExistingProcessAction="{x:Null}" LaunchMethod="{x:Null}" LaunchTimeout="{x:Null}" MacroSettings="{x:Null}" ProcessMode="{x:Null}" DisplayName="Excel Process Scope Copy Paste Percentage Big Model" FileConflictResolution="None" sap:VirtualizedContainerService.HintSize="1246,4171" sap2010:WorkflowViewState.IdRef="ExcelProcessScopeX_1" ShowExcelWindow="False">
             <ueab:ExcelProcessScopeX.Body>
               <ActivityAction x:TypeArguments="ui:IExcelProcess">
                 <ActivityAction.Argument>
                   <DelegateInArgument x:TypeArguments="ui:IExcelProcess" Name="ExcelProcessScopeTag" />
                 </ActivityAction.Argument>
-                <Sequence DisplayName="Do Excel Process Scope Copy Paste Percentage Big Model" sap:VirtualizedContainerService.HintSize="1212,2852" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                <Sequence DisplayName="Do Excel Process Scope Copy Paste Percentage Big Model" sap:VirtualizedContainerService.HintSize="1212,4084" sap2010:WorkflowViewState.IdRef="Sequence_5">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ueab:ExcelApplicationCard Password="{x:Null}" ReadFormatting="{x:Null}" CreateNewFile="False" DisplayName="Use Excel File Copy Paste Percentage Big Model" sap:VirtualizedContainerService.HintSize="1150,2741" sap2010:WorkflowViewState.IdRef="ExcelApplicationCard_1" WorkbookPath="[in_PathPaperByModel]">
+                  <ueab:ExcelApplicationCard Password="{x:Null}" ReadFormatting="{x:Null}" CreateNewFile="False" DisplayName="Use Excel File Copy Paste Percentage Big Model" sap:VirtualizedContainerService.HintSize="1150,3973" sap2010:WorkflowViewState.IdRef="ExcelApplicationCard_1" ResizeWindow="None" WorkbookPath="[in_PathPaperByModel]">
                     <ueab:ExcelApplicationCard.Body>
                       <ActivityAction x:TypeArguments="ue:IWorkbookQuickHandle">
                         <ActivityAction.Argument>
                           <DelegateInArgument x:TypeArguments="ue:IWorkbookQuickHandle" Name="Excel" />
                         </ActivityAction.Argument>
-                        <Sequence DisplayName="Do Use Excel File Copy Paste Percentage Big Model" sap:VirtualizedContainerService.HintSize="1116,2474" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                        <Sequence DisplayName="Do Use Excel File Copy Paste Percentage Big Model" sap:VirtualizedContainerService.HintSize="1116,3706" sap2010:WorkflowViewState.IdRef="Sequence_4">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
+                          <ueab:CopyPasteRangeX DestinationRange="[Excel.Sheet(in_SheetPaperByModel).Range(&quot;Q3&quot;)]" DisplayName="Copy/Paste Range" sap:VirtualizedContainerService.HintSize="1054,239" sap2010:WorkflowViewState.IdRef="CopyPasteRangeX_2" PasteOptions="All" SourceRange="[Excel.Sheet(in_SheetPaper).Range(in_AdditionalCopyRange)]" Transpose="False" />
+                          <ueab:CopyPasteRangeX DestinationRange="[Excel.Sheet(in_SheetPaperByModel).Range(&quot;S3&quot;)]" DisplayName="Copy/Paste Range" sap:VirtualizedContainerService.HintSize="1054,239" sap2010:WorkflowViewState.IdRef="CopyPasteRangeX_3" PasteOptions="All" SourceRange="[Excel.Sheet(in_SheetPaper).Range(in_AdditionalCopyRange)]" Transpose="False" />
+                          <ueab:CopyPasteRangeX DestinationRange="[Excel.Sheet(in_SheetPaperByModel).Range(&quot;T3&quot;)]" DisplayName="Copy/Paste Range" sap:VirtualizedContainerService.HintSize="1054,239" sap2010:WorkflowViewState.IdRef="CopyPasteRangeX_4" PasteOptions="All" SourceRange="[Excel.Sheet(in_SheetPaper).Range(in_AdditionalCopyRange)]" Transpose="False" />
                           <ueab:FindReplaceValueX ReplaceWith="{x:Null}" DisplayName="Find/Replace Value Composition - Copy Paste Percentage Big Model" FoundAt="[FoundCopyRange]" sap:VirtualizedContainerService.HintSize="1054,234" sap2010:WorkflowViewState.IdRef="FindReplaceValueX_1" LookIn="Values" Operation="Find" ValueToFind="[in_FindBigModelComp]" WhereToSearch="[Excel.Sheet(in_SheetPaper).Range(in_FindRangeBigModelComp)]">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -161,7 +170,7 @@
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
                           </ueab:FindReplaceValueX>
-                          <If Condition="[Not FoundCopyRange is Nothing]" DisplayName="If Finded Value Composition - Copy Paste Percentage Big Model" sap:VirtualizedContainerService.HintSize="1054,651" sap2010:WorkflowViewState.IdRef="If_3">
+                          <If Condition="[Not FoundCopyRange is Nothing]" DisplayName="If Finded Value Composition - Copy Paste Percentage Big Model" sap:VirtualizedContainerService.HintSize="1054,650" sap2010:WorkflowViewState.IdRef="If_3">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -169,13 +178,13 @@
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
                             <If.Then>
-                              <Sequence DisplayName="Then Finded Value Header - Copy Paste Others Model" sap:VirtualizedContainerService.HintSize="559,493" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                              <Sequence DisplayName="Then Finded Value Header - Copy Paste Others Model" sap:VirtualizedContainerService.HintSize="559,492" sap2010:WorkflowViewState.IdRef="Sequence_7">
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
-                                <Switch x:TypeArguments="x:Boolean" DisplayName="Switch Is Adjust Composition - Copy Paste Percentage Big Model" Expression="[in_IsAdjustComposition]" sap:VirtualizedContainerService.HintSize="497,138" sap2010:WorkflowViewState.IdRef="Switch`1_2">
+                                <Switch x:TypeArguments="x:Boolean" DisplayName="Switch Is Adjust Composition - Copy Paste Percentage Big Model" Expression="[in_IsAdjustComposition]" sap:VirtualizedContainerService.HintSize="497,137" sap2010:WorkflowViewState.IdRef="Switch`1_2">
                                   <Sequence x:Key="True" DisplayName="True Is Adjust Composition - Copy Paste Percentage Big Model" sap:VirtualizedContainerService.HintSize="496,587" sap2010:WorkflowViewState.IdRef="Sequence_11">
                                     <Sequence.Variables>
                                       <Variable x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="Start range to find value composition." Name="StartFoundCopyRange" />
@@ -300,16 +309,18 @@
                               <InOutArgument x:TypeArguments="sd:DataTable" x:Key="io_dt_Manipulation">[dt_Temp]</InOutArgument>
                             </ui:InvokeWorkflowFile.Arguments>
                           </ui:InvokeWorkflowFile>
-                          <ueab:WriteRangeX Destination="[Excel.Sheet(in_SheetPaperByModel).Range(StartRangeWriteBigModel + &quot;:&quot; + EndRangeWriteBigModel)]" DisplayName="Write DataTable to Excel - Copy Paste Percentage Big Model " ExcludeHeaders="True" sap:VirtualizedContainerService.HintSize="1054,158" sap2010:WorkflowViewState.IdRef="WriteRangeX_1" IgnoreEmptySource="True" Source="[dt_Temp]" />
+                          <ueab:WriteRangeX Destination="[Excel.Sheet(in_SheetPaperByModel).Range(StartRangeWriteBigModel)]" DisplayName="Write DataTable to Excel - Copy Paste Percentage Big Model " ExcludeHeaders="True" sap:VirtualizedContainerService.HintSize="1054,158" sap2010:WorkflowViewState.IdRef="WriteRangeX_1" IgnoreEmptySource="True" Source="[dt_Temp]" />
+                          <ueab:WriteRangeX Destination="[Excel.Sheet(in_SheetPaperByModel).Range(&quot;S&quot;+ (CInt(System.Text.RegularExpressions.Regex.Matches(FoundPasteRange,&quot;[0-9]\d*(.[0-9]\d+)?&quot;)(0).ToString)).ToString)]" DisplayName="Write DataTable to Excel - Copy Paste Percentage Big Model " ExcludeHeaders="True" sap:VirtualizedContainerService.HintSize="1054,158" sap2010:WorkflowViewState.IdRef="WriteRangeX_3" IgnoreEmptySource="True" Source="[dt_Temp]" />
+                          <ueab:WriteRangeX Destination="[Excel.Sheet(in_SheetPaperByModel).Range(EndRangeWriteBigModel)]" DisplayName="Write DataTable to Excel - Copy Paste Percentage Big Model " ExcludeHeaders="True" sap:VirtualizedContainerService.HintSize="1054,158" sap2010:WorkflowViewState.IdRef="WriteRangeX_2" IgnoreEmptySource="True" Source="[dt_Temp]" />
                           <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="1054,52" sap2010:WorkflowViewState.IdRef="CommentOut_1">
                             <ui:CommentOut.Body>
-                              <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="496,322" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                              <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="496,350" sap2010:WorkflowViewState.IdRef="Sequence_14">
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
-                                <ueab:CopyPasteRangeX DestinationRange="[Excel.Sheet(in_SheetPaperByModel).Cell(&quot;Q3&quot;)]" DisplayName="Copy/Paste Range - Copy Paste Percentage Big Model" ExcludeHeaders="True" sap:VirtualizedContainerService.HintSize="434,211" sap2010:WorkflowViewState.IdRef="CopyPasteRangeX_1" PasteOptions="Values" SourceRange="[Excel.Sheet(in_SheetPaper).Range(&quot;D81&quot;)]" Transpose="False">
+                                <ueab:CopyPasteRangeX DestinationRange="[Excel.Sheet(in_SheetPaperByModel).Cell(&quot;Q3&quot;)]" DisplayName="Copy/Paste Range - Copy Paste Percentage Big Model" ExcludeHeaders="True" sap:VirtualizedContainerService.HintSize="434,239" sap2010:WorkflowViewState.IdRef="CopyPasteRangeX_1" PasteOptions="Values" SourceRange="[Excel.Sheet(in_SheetPaper).Range(&quot;D81&quot;)]" Transpose="False">
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -346,14 +357,14 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ueab:ExcelProcessScopeX>
-          <Switch x:TypeArguments="x:Boolean" DisplayName="Switch Finished Log Is Adjust Composition - Copy Paste Percentage Big Model" Expression="[in_IsAdjustComposition]" sap:VirtualizedContainerService.HintSize="1246,300" sap2010:WorkflowViewState.IdRef="Switch`1_4">
+          <Switch x:TypeArguments="x:Boolean" DisplayName="Switch Finished Log Is Adjust Composition - Copy Paste Percentage Big Model" Expression="[in_IsAdjustComposition]" sap:VirtualizedContainerService.HintSize="1246,160" sap2010:WorkflowViewState.IdRef="Switch`1_4">
             <ui:LogMessage x:Key="True" DisplayName="Log Message - Finished Copy Paste Percentage Big Model Adjust Composition" sap:VirtualizedContainerService.HintSize="334,92" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;Finished process copy paste percentage big model adjust composition &quot; + in_ProcessName]" />
             <ui:LogMessage x:Key="False" DisplayName="Log Message - Finished Copy Paste Percentage Big Model" sap:VirtualizedContainerService.HintSize="334,92" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Finished process copy paste percentage big model &quot; + in_ProcessName]" />
           </Switch>
         </Sequence>
       </TryCatch.Try>
       <TryCatch.Catches>
-        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="1312,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="1351,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -364,7 +375,7 @@
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="Catches Exception Input Paper By Model" sap:VirtualizedContainerService.HintSize="559,267" sap2010:WorkflowViewState.IdRef="Sequence_3">
+            <Sequence DisplayName="Catches Exception Input Paper By Model" sap:VirtualizedContainerService.HintSize="559,271" sap2010:WorkflowViewState.IdRef="Sequence_3">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>

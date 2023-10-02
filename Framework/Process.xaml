@@ -11,7 +11,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>908,1314</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1234,1354</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="50">
@@ -92,10 +92,9 @@
       <AssemblyReference>UiPathTeam.SharePoint</AssemblyReference>
       <AssemblyReference>OfficeDevPnP.Core</AssemblyReference>
       <AssemblyReference>NPOI</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="918,1249" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="938,1289" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="Path location of excel template file." Name="Workfile" />
       <Variable x:TypeArguments="x:Boolean" Name="IsDiffRsOp" />
@@ -109,22 +108,22 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <TryCatch DisplayName="Try Catch Process" sap:VirtualizedContainerService.HintSize="876,1085" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch DisplayName="Try Catch Process" sap:VirtualizedContainerService.HintSize="876,1106" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <TryCatch.Try>
-        <Sequence DisplayName="Try Process" sap:VirtualizedContainerService.HintSize="818,858" sap2010:WorkflowViewState.IdRef="Sequence_4">
+        <Sequence DisplayName="Try Process" sap:VirtualizedContainerService.HintSize="838,878" sap2010:WorkflowViewState.IdRef="Sequence_4">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Flowchart DisplayName="Flowchart Process" sap:VirtualizedContainerService.HintSize="776,766" sap2010:WorkflowViewState.IdRef="Flowchart_2">
+          <Flowchart DisplayName="Flowchart Process" sap:VirtualizedContainerService.HintSize="776,767" sap2010:WorkflowViewState.IdRef="Flowchart_2">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 <av:Point x:Key="ShapeLocation">20,12.5</av:Point>
                 <av:Size x:Key="ShapeSize">60,75</av:Size>
-                <av:PointCollection x:Key="ConnectorLocation">80,50 110,50 110,42.5 200,42.5</av:PointCollection>
+                <av:PointCollection x:Key="ConnectorLocation">80,50 200,50</av:PointCollection>
                 <x:Double x:Key="Width">742</x:Double>
                 <x:Double x:Key="Height">730.5</x:Double>
               </scg:Dictionary>
@@ -136,11 +135,11 @@
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <av:Point x:Key="ShapeLocation">470,119.5</av:Point>
-                  <av:Size x:Key="ShapeSize">200,66</av:Size>
-                  <av:PointCollection x:Key="ConnectorLocation">470,152.5 440,152.5 440,160 390,160</av:PointCollection>
+                  <av:Size x:Key="ShapeSize">200,81</av:Size>
+                  <av:PointCollection x:Key="ConnectorLocation">470,160 440,160 440,160.5 390,160.5</av:PointCollection>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <Sequence DisplayName="Process Input Data" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_22">
+              <Sequence DisplayName="Process Input Data" sap:VirtualizedContainerService.HintSize="200,81" sap2010:WorkflowViewState.IdRef="Sequence_22">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -174,11 +173,11 @@
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <av:Point x:Key="ShapeLocation">190,134.5</av:Point>
-                      <av:Size x:Key="ShapeSize">200,51</av:Size>
+                      <av:Size x:Key="ShapeSize">200,52</av:Size>
                       <av:PointCollection x:Key="ConnectorLocation">290,186.5 290,216.5 550,216.5 550,294.5</av:PointCollection>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:CommentOut sap:VirtualizedContainerService.HintSize="457,282" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+                  <ui:CommentOut sap:VirtualizedContainerService.HintSize="200,52" sap2010:WorkflowViewState.IdRef="CommentOut_1">
                     <ui:CommentOut.Body>
                       <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="421,204" sap2010:WorkflowViewState.IdRef="Sequence_34">
                         <sap:WorkflowViewStateService.ViewState>
@@ -188,33 +187,15 @@
                         </sap:WorkflowViewStateService.ViewState>
                         <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Upload_Files_Sharepoint Workflow" sap:VirtualizedContainerService.HintSize="379,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_43" UnSafe="False" WorkflowFileName="Workflow\Sharepoint\Upload_Files_Sharepoint.xaml">
                           <ui:InvokeWorkflowFile.Arguments>
-                            <InArgument x:TypeArguments="x:String" x:Key="in_FileName">
-                              <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_FileRdFinalAdjust" />
-                            </InArgument>
-                            <InArgument x:TypeArguments="x:String" x:Key="in_SharepointPath">
-                              <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;SharepointUploadResultPath&quot;).ToString" />
-                            </InArgument>
-                            <InArgument x:TypeArguments="x:String" x:Key="in_SharepointUrl">
-                              <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;SHAREPOINT_URL&quot;).ToString" />
-                            </InArgument>
-                            <InArgument x:TypeArguments="x:String" x:Key="in_SharepointLibrary">
-                              <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;SharepointLibraryResult&quot;).ToString" />
-                            </InArgument>
-                            <InArgument x:TypeArguments="x:String" x:Key="in_FileToUploaded">
-                              <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="Workfile" />
-                            </InArgument>
-                            <InArgument x:TypeArguments="sd:DataRow" x:Key="in_TransactionItem">
-                              <mva:VisualBasicValue x:TypeArguments="sd:DataRow" ExpressionText="in_TransactionItem" />
-                            </InArgument>
-                            <InArgument x:TypeArguments="x:String" x:Key="in_CreateFolder">
-                              <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;SharepointDataSourceOutputPath&quot;).ToString" />
-                            </InArgument>
-                            <InArgument x:TypeArguments="x:String" x:Key="in_CreateFolderFinal">
-                              <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;SharepointAdjustmentFinalPath&quot;).ToString" />
-                            </InArgument>
-                            <InArgument x:TypeArguments="x:String" x:Key="in_Sharepoint_SSP_Credential">
-                              <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;SharepointCredential&quot;).ToString.Trim" />
-                            </InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="in_FileName">[in_FileRdFinalAdjust]</InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="in_SharepointPath">[in_Config("SharepointUploadResultPath").ToString]</InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="in_SharepointUrl">[in_Config("SHAREPOINT_URL").ToString]</InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="in_SharepointLibrary">[in_Config("SharepointLibraryResult").ToString]</InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="in_FileToUploaded">[Workfile]</InArgument>
+                            <InArgument x:TypeArguments="sd:DataRow" x:Key="in_TransactionItem">[in_TransactionItem]</InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="in_CreateFolder">[in_Config("SharepointDataSourceOutputPath").ToString]</InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="in_CreateFolderFinal">[in_Config("SharepointAdjustmentFinalPath").ToString]</InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="in_Sharepoint_SSP_Credential">[in_Config("SharepointCredential").ToString.Trim]</InArgument>
                           </ui:InvokeWorkflowFile.Arguments>
                         </ui:InvokeWorkflowFile>
                       </Sequence>
@@ -225,33 +206,39 @@
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <av:Point x:Key="ShapeLocation">450,294.5</av:Point>
-                          <av:Size x:Key="ShapeSize">200,51</av:Size>
+                          <av:Size x:Key="ShapeSize">200,52</av:Size>
                           <av:PointCollection x:Key="ConnectorLocation">550,346.5 550,417.5</av:PointCollection>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Input_Check_Final workflow" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_53" UnSafe="False" WorkflowFileName="Workflow\Process\Check_Final\Input_Check_Final.xaml">
-                        <ui:InvokeWorkflowFile.Arguments>
-                          <InArgument x:TypeArguments="x:String" x:Key="in_PathSummary">[Workfile]</InArgument>
-                          <InArgument x:TypeArguments="x:String" x:Key="in_SheetCheckFinal">[in_Config("SheetCheckFinal").ToString.Trim]</InArgument>
-                          <InArgument x:TypeArguments="x:String" x:Key="in_SheetDailyPlanRd">[in_Config("SheetDailyPlanRd").ToString.Trim]</InArgument>
-                          <InArgument x:TypeArguments="x:String" x:Key="in_SheetDailyPlanOp">[in_Config("SheetDailyPlanOp").ToString.Trim]</InArgument>
-                        </ui:InvokeWorkflowFile.Arguments>
-                        <sap:WorkflowViewStateService.ViewState>
-                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                          </scg:Dictionary>
-                        </sap:WorkflowViewStateService.ViewState>
-                      </ui:InvokeWorkflowFile>
+                      <ui:CommentOut sap:VirtualizedContainerService.HintSize="200,52" sap2010:WorkflowViewState.IdRef="CommentOut_5">
+                        <ui:CommentOut.Body>
+                          <Sequence DisplayName="Ignored Activities" sap2010:WorkflowViewState.IdRef="Sequence_41">
+                            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Input_Check_Final workflow" sap:VirtualizedContainerService.HintSize="200,52" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_53" UnSafe="False" WorkflowFileName="Workflow\Process\Check_Final\Input_Check_Final.xaml">
+                              <ui:InvokeWorkflowFile.Arguments>
+                                <InArgument x:TypeArguments="x:String" x:Key="in_PathSummary">[Workfile]</InArgument>
+                                <InArgument x:TypeArguments="x:String" x:Key="in_SheetCheckFinal">[in_Config("SheetCheckFinal").ToString.Trim]</InArgument>
+                                <InArgument x:TypeArguments="x:String" x:Key="in_SheetDailyPlanRd">[in_Config("SheetDailyPlanRd").ToString.Trim]</InArgument>
+                                <InArgument x:TypeArguments="x:String" x:Key="in_SheetDailyPlanOp">[in_Config("SheetDailyPlanOp").ToString.Trim]</InArgument>
+                              </ui:InvokeWorkflowFile.Arguments>
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                            </ui:InvokeWorkflowFile>
+                          </Sequence>
+                        </ui:CommentOut.Body>
+                      </ui:CommentOut>
                       <FlowStep.Next>
                         <FlowStep x:Name="__ReferenceID4">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <av:Point x:Key="ShapeLocation">450,417.5</av:Point>
-                              <av:Size x:Key="ShapeSize">200,66</av:Size>
-                              <av:PointCollection x:Key="ConnectorLocation">550,483.5 550,513.5 540,513.5 540,574</av:PointCollection>
+                              <av:Size x:Key="ShapeSize">200,81</av:Size>
+                              <av:PointCollection x:Key="ConnectorLocation">550,498.5 550,528.5 540,528.5 540,574</av:PointCollection>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <Sequence DisplayName="Send Email Success" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_40">
+                          <Sequence DisplayName="Send Email Success" sap:VirtualizedContainerService.HintSize="200,81" sap2010:WorkflowViewState.IdRef="Sequence_40">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -278,39 +265,21 @@
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <av:Point x:Key="ShapeLocation">440,574</av:Point>
-                                  <av:Size x:Key="ShapeSize">200,51</av:Size>
-                                  <av:PointCollection x:Key="ConnectorLocation">440,600 410,600 410,592.5 360,592.5</av:PointCollection>
+                                  <av:Size x:Key="ShapeSize">200,52</av:Size>
+                                  <av:PointCollection x:Key="ConnectorLocation">440,600 360,600</av:PointCollection>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
-                              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="True" DisplayName="Invoke Upload_Files_Sharepoint Final Workflow" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_52" UnSafe="False" WorkflowFileName="Workflow\Sharepoint\Upload_Files_Sharepoint.xaml">
+                              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="True" DisplayName="Invoke Upload_Files_Sharepoint Final Workflow" sap:VirtualizedContainerService.HintSize="200,52" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_52" UnSafe="False" WorkflowFileName="Workflow\Sharepoint\Upload_Files_Sharepoint.xaml">
                                 <ui:InvokeWorkflowFile.Arguments>
-                                  <InArgument x:TypeArguments="x:String" x:Key="in_FileName">
-                                    <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_FileRdFinalAdjust" />
-                                  </InArgument>
-                                  <InArgument x:TypeArguments="x:String" x:Key="in_SharepointPath">
-                                    <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;SharepointUploadResultPath&quot;).ToString" />
-                                  </InArgument>
-                                  <InArgument x:TypeArguments="x:String" x:Key="in_SharepointUrl">
-                                    <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;SHAREPOINT_URL&quot;).ToString" />
-                                  </InArgument>
-                                  <InArgument x:TypeArguments="x:String" x:Key="in_SharepointLibrary">
-                                    <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;SharepointLibraryResult&quot;).ToString" />
-                                  </InArgument>
-                                  <InArgument x:TypeArguments="x:String" x:Key="in_FileToUploaded">
-                                    <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="Workfile" />
-                                  </InArgument>
-                                  <InArgument x:TypeArguments="sd:DataRow" x:Key="in_TransactionItem">
-                                    <mva:VisualBasicValue x:TypeArguments="sd:DataRow" ExpressionText="in_TransactionItem" />
-                                  </InArgument>
-                                  <InArgument x:TypeArguments="x:String" x:Key="in_CreateFolder">
-                                    <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;SharepointDataSourceOutputPath&quot;).ToString" />
-                                  </InArgument>
-                                  <InArgument x:TypeArguments="x:String" x:Key="in_CreateFolderFinal">
-                                    <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;SharepointAdjustmentFinalPath&quot;).ToString" />
-                                  </InArgument>
-                                  <InArgument x:TypeArguments="x:String" x:Key="in_Sharepoint_SSP_Credential">
-                                    <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;SharepointCredential&quot;).ToString.Trim" />
-                                  </InArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="in_FileName">[in_FileRdFinalAdjust]</InArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="in_SharepointPath">[in_Config("SharepointUploadResultPath").ToString]</InArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="in_SharepointUrl">[in_Config("SHAREPOINT_URL").ToString]</InArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="in_SharepointLibrary">[in_Config("SharepointLibraryResult").ToString]</InArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="in_FileToUploaded">[Workfile]</InArgument>
+                                  <InArgument x:TypeArguments="sd:DataRow" x:Key="in_TransactionItem">[in_TransactionItem]</InArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="in_CreateFolder">[in_Config("SharepointDataSourceOutputPath").ToString]</InArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="in_CreateFolderFinal">[in_Config("SharepointAdjustmentFinalPath").ToString]</InArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="in_Sharepoint_SSP_Credential">[in_Config("SharepointCredential").ToString.Trim]</InArgument>
                                 </ui:InvokeWorkflowFile.Arguments>
                               </ui:InvokeWorkflowFile>
                               <FlowStep.Next>
@@ -318,10 +287,10 @@
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                       <av:Point x:Key="ShapeLocation">160,559.5</av:Point>
-                                      <av:Size x:Key="ShapeSize">200,66</av:Size>
+                                      <av:Size x:Key="ShapeSize">200,81</av:Size>
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
-                                  <Sequence DisplayName="Move File" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_36">
+                                  <Sequence DisplayName="Move File" sap:VirtualizedContainerService.HintSize="200,81" sap2010:WorkflowViewState.IdRef="Sequence_36">
                                     <sap:WorkflowViewStateService.ViewState>
                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -350,11 +319,11 @@
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <av:Point x:Key="ShapeLocation">200,9.5</av:Point>
-                  <av:Size x:Key="ShapeSize">200,66</av:Size>
-                  <av:PointCollection x:Key="ConnectorLocation">400,42.5 570,42.5 570,119.5</av:PointCollection>
+                  <av:Size x:Key="ShapeSize">200,81</av:Size>
+                  <av:PointCollection x:Key="ConnectorLocation">400,50 570,50 570,119.5</av:PointCollection>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <Sequence DisplayName="Initialization Process" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_23">
+              <Sequence DisplayName="Initialization Process" sap:VirtualizedContainerService.HintSize="200,81" sap2010:WorkflowViewState.IdRef="Sequence_23">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -401,11 +370,11 @@
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <av:Point x:Key="ShapeLocation">10,389.5</av:Point>
-                      <av:Size x:Key="ShapeSize">200,51</av:Size>
-                      <av:PointCollection x:Key="ConnectorLocation">110,440.5 110,592.5 160,592.5</av:PointCollection>
+                      <av:Size x:Key="ShapeSize">200,52</av:Size>
+                      <av:PointCollection x:Key="ConnectorLocation">110,441.5 110,600 160,600</av:PointCollection>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:CommentOut sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="CommentOut_4">
+                  <ui:CommentOut sap:VirtualizedContainerService.HintSize="200,52" sap2010:WorkflowViewState.IdRef="CommentOut_4">
                     <ui:CommentOut.Body>
                       <Sequence DisplayName="Ignored Activities" sap2010:WorkflowViewState.IdRef="Sequence_39">
                         <Sequence DisplayName="Send Email Diff" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_30">

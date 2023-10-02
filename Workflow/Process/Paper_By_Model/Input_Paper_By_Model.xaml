@@ -13,7 +13,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1220,2206</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1234,2206</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Input_Paper_By_Model_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -90,6 +90,8 @@
       <AssemblyReference>UiPathTeam.SharePoint</AssemblyReference>
       <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
       <AssemblyReference>UiPathTeam.SharePoint.Activities</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
   <Sequence DisplayName="Input_Paper_By_Model" sap:VirtualizedContainerService.HintSize="908,2141" sap2010:WorkflowViewState.IdRef="Sequence_1">
@@ -285,19 +287,48 @@
                                     </ui:CommentOut>
                                     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke  Copy_Paste_Percentage_Big_Model SPK NETT Workflow - Input Paper By Model" sap:VirtualizedContainerService.HintSize="388,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_21" UnSafe="False" WorkflowFileName="Workflow\Process\Paper_By_Model\Copy_Paste_Percentage_Big_Model.xaml">
                                       <ui:InvokeWorkflowFile.Arguments>
-                                        <InArgument x:TypeArguments="x:String" x:Key="in_ProcessName">SPK NETT</InArgument>
-                                        <InArgument x:TypeArguments="x:String" x:Key="in_PathPaperByModel">[in_PathPaperByModel]</InArgument>
-                                        <InArgument x:TypeArguments="x:String" x:Key="in_SheetPaperByModel">[in_SheetPaperByModel]</InArgument>
-                                        <InArgument x:TypeArguments="x:String" x:Key="in_SheetPaper">[in_SheetPaper]</InArgument>
-                                        <InArgument x:TypeArguments="x:String" x:Key="in_FindRangePaste">N1:N10000</InArgument>
-                                        <InArgument x:TypeArguments="x:String" x:Key="in_ValueToFindPaste">%Big Model</InArgument>
-                                        <InArgument x:TypeArguments="x:String" x:Key="in_FindRangeBigModelComp">C1:C10000</InArgument>
-                                        <InArgument x:TypeArguments="x:String" x:Key="in_FindBigModelComp">Big Model Comp</InArgument>
-                                        <InArgument x:TypeArguments="x:Boolean" x:Key="in_IsAdjustComposition">False</InArgument>
-                                        <InArgument x:TypeArguments="x:String" x:Key="in_ColumnStartWriteBigModel">Q</InArgument>
-                                        <InArgument x:TypeArguments="x:String" x:Key="in_ColumnEndWriteBigModel">T</InArgument>
-                                        <InArgument x:TypeArguments="x:String" x:Key="in_ColumnStartReadBigModel">D</InArgument>
-                                        <InArgument x:TypeArguments="x:String" x:Key="in_ColumnEndReadBigModel">F</InArgument>
+                                        <InArgument x:TypeArguments="x:String" x:Key="in_ProcessName">
+                                          <Literal x:TypeArguments="x:String">SPK NETT</Literal>
+                                        </InArgument>
+                                        <InArgument x:TypeArguments="x:String" x:Key="in_PathPaperByModel">
+                                          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_PathPaperByModel" />
+                                        </InArgument>
+                                        <InArgument x:TypeArguments="x:String" x:Key="in_SheetPaperByModel">
+                                          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_SheetPaperByModel" />
+                                        </InArgument>
+                                        <InArgument x:TypeArguments="x:String" x:Key="in_SheetPaper">
+                                          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_SheetPaper" />
+                                        </InArgument>
+                                        <InArgument x:TypeArguments="x:String" x:Key="in_FindRangePaste">
+                                          <Literal x:TypeArguments="x:String">N1:N10000</Literal>
+                                        </InArgument>
+                                        <InArgument x:TypeArguments="x:String" x:Key="in_ValueToFindPaste">
+                                          <Literal x:TypeArguments="x:String">%Big Model</Literal>
+                                        </InArgument>
+                                        <InArgument x:TypeArguments="x:String" x:Key="in_FindRangeBigModelComp">
+                                          <Literal x:TypeArguments="x:String">C1:C10000</Literal>
+                                        </InArgument>
+                                        <InArgument x:TypeArguments="x:String" x:Key="in_FindBigModelComp">
+                                          <Literal x:TypeArguments="x:String">Big Model Comp</Literal>
+                                        </InArgument>
+                                        <InArgument x:TypeArguments="x:Boolean" x:Key="in_IsAdjustComposition">
+                                          <Literal x:TypeArguments="x:Boolean" />
+                                        </InArgument>
+                                        <InArgument x:TypeArguments="x:String" x:Key="in_ColumnStartWriteBigModel">
+                                          <Literal x:TypeArguments="x:String">Q</Literal>
+                                        </InArgument>
+                                        <InArgument x:TypeArguments="x:String" x:Key="in_ColumnEndWriteBigModel">
+                                          <Literal x:TypeArguments="x:String">T</Literal>
+                                        </InArgument>
+                                        <InArgument x:TypeArguments="x:String" x:Key="in_ColumnStartReadBigModel">
+                                          <Literal x:TypeArguments="x:String">D</Literal>
+                                        </InArgument>
+                                        <InArgument x:TypeArguments="x:String" x:Key="in_ColumnEndReadBigModel">
+                                          <Literal x:TypeArguments="x:String">F</Literal>
+                                        </InArgument>
+                                        <InArgument x:TypeArguments="x:String" x:Key="in_AdditionalCopyRange">
+                                          <Literal x:TypeArguments="x:String">D77:F77</Literal>
+                                        </InArgument>
                                       </ui:InvokeWorkflowFile.Arguments>
                                       <sap:WorkflowViewStateService.ViewState>
                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -535,19 +566,48 @@
                                     </ui:CommentOut>
                                     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke  Copy_Paste_Percentage_Big_Model SPK OP Workflow - Input Paper By Model" sap:VirtualizedContainerService.HintSize="388,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="Workflow\Process\Paper_By_Model\Copy_Paste_Percentage_Big_Model.xaml">
                                       <ui:InvokeWorkflowFile.Arguments>
-                                        <InArgument x:TypeArguments="x:String" x:Key="in_ProcessName">SPK OP</InArgument>
-                                        <InArgument x:TypeArguments="x:String" x:Key="in_PathPaperByModel">[in_PathPaperByModel]</InArgument>
-                                        <InArgument x:TypeArguments="x:String" x:Key="in_SheetPaperByModel">[in_SheetPaperByModel]</InArgument>
-                                        <InArgument x:TypeArguments="x:String" x:Key="in_SheetPaper">[in_SheetPaper]</InArgument>
-                                        <InArgument x:TypeArguments="x:String" x:Key="in_FindRangePaste">AK1:AK10000</InArgument>
-                                        <InArgument x:TypeArguments="x:String" x:Key="in_ValueToFindPaste">%Big Model</InArgument>
-                                        <InArgument x:TypeArguments="x:String" x:Key="in_FindRangeBigModelComp">N1:N10000</InArgument>
-                                        <InArgument x:TypeArguments="x:String" x:Key="in_FindBigModelComp">Big Model Comp</InArgument>
-                                        <InArgument x:TypeArguments="x:Boolean" x:Key="in_IsAdjustComposition">False</InArgument>
-                                        <InArgument x:TypeArguments="x:String" x:Key="in_ColumnStartWriteBigModel">AN</InArgument>
-                                        <InArgument x:TypeArguments="x:String" x:Key="in_ColumnEndWriteBigModel">AQ</InArgument>
-                                        <InArgument x:TypeArguments="x:String" x:Key="in_ColumnStartReadBigModel">O</InArgument>
-                                        <InArgument x:TypeArguments="x:String" x:Key="in_ColumnEndReadBigModel">Q</InArgument>
+                                        <InArgument x:TypeArguments="x:String" x:Key="in_ProcessName">
+                                          <Literal x:TypeArguments="x:String">SPK OP</Literal>
+                                        </InArgument>
+                                        <InArgument x:TypeArguments="x:String" x:Key="in_PathPaperByModel">
+                                          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_PathPaperByModel" />
+                                        </InArgument>
+                                        <InArgument x:TypeArguments="x:String" x:Key="in_SheetPaperByModel">
+                                          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_SheetPaperByModel" />
+                                        </InArgument>
+                                        <InArgument x:TypeArguments="x:String" x:Key="in_SheetPaper">
+                                          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_SheetPaper" />
+                                        </InArgument>
+                                        <InArgument x:TypeArguments="x:String" x:Key="in_FindRangePaste">
+                                          <Literal x:TypeArguments="x:String">AK1:AK10000</Literal>
+                                        </InArgument>
+                                        <InArgument x:TypeArguments="x:String" x:Key="in_ValueToFindPaste">
+                                          <Literal x:TypeArguments="x:String">%Big Model</Literal>
+                                        </InArgument>
+                                        <InArgument x:TypeArguments="x:String" x:Key="in_FindRangeBigModelComp">
+                                          <Literal x:TypeArguments="x:String">N1:N10000</Literal>
+                                        </InArgument>
+                                        <InArgument x:TypeArguments="x:String" x:Key="in_FindBigModelComp">
+                                          <Literal x:TypeArguments="x:String">Big Model Comp</Literal>
+                                        </InArgument>
+                                        <InArgument x:TypeArguments="x:Boolean" x:Key="in_IsAdjustComposition">
+                                          <Literal x:TypeArguments="x:Boolean" />
+                                        </InArgument>
+                                        <InArgument x:TypeArguments="x:String" x:Key="in_ColumnStartWriteBigModel">
+                                          <Literal x:TypeArguments="x:String">AN</Literal>
+                                        </InArgument>
+                                        <InArgument x:TypeArguments="x:String" x:Key="in_ColumnEndWriteBigModel">
+                                          <Literal x:TypeArguments="x:String">AQ</Literal>
+                                        </InArgument>
+                                        <InArgument x:TypeArguments="x:String" x:Key="in_ColumnStartReadBigModel">
+                                          <Literal x:TypeArguments="x:String">O</Literal>
+                                        </InArgument>
+                                        <InArgument x:TypeArguments="x:String" x:Key="in_ColumnEndReadBigModel">
+                                          <Literal x:TypeArguments="x:String">Q</Literal>
+                                        </InArgument>
+                                        <InArgument x:TypeArguments="x:String" x:Key="in_AdditionalCopyRange">
+                                          <Literal x:TypeArguments="x:String">O77:Q77</Literal>
+                                        </InArgument>
                                       </ui:InvokeWorkflowFile.Arguments>
                                       <sap:WorkflowViewStateService.ViewState>
                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -785,19 +845,48 @@
                                     </ui:CommentOut>
                                     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke  Copy_Paste_Percentage_Big_Model RS RD Workflow - Input Paper By Model" sap:VirtualizedContainerService.HintSize="388,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="Workflow\Process\Paper_By_Model\Copy_Paste_Percentage_Big_Model.xaml">
                                       <ui:InvokeWorkflowFile.Arguments>
-                                        <InArgument x:TypeArguments="x:String" x:Key="in_ProcessName">RS RD</InArgument>
-                                        <InArgument x:TypeArguments="x:String" x:Key="in_PathPaperByModel">[in_PathPaperByModel]</InArgument>
-                                        <InArgument x:TypeArguments="x:String" x:Key="in_SheetPaperByModel">[in_SheetPaperByModel]</InArgument>
-                                        <InArgument x:TypeArguments="x:String" x:Key="in_SheetPaper">[in_SheetPaper]</InArgument>
-                                        <InArgument x:TypeArguments="x:String" x:Key="in_FindRangePaste">N1:N10000</InArgument>
-                                        <InArgument x:TypeArguments="x:String" x:Key="in_ValueToFindPaste">WOT % Big Model</InArgument>
-                                        <InArgument x:TypeArguments="x:String" x:Key="in_FindRangeBigModelComp">AA1:AA10000</InArgument>
-                                        <InArgument x:TypeArguments="x:String" x:Key="in_FindBigModelComp">Big Model Comp</InArgument>
-                                        <InArgument x:TypeArguments="x:Boolean" x:Key="in_IsAdjustComposition">False</InArgument>
-                                        <InArgument x:TypeArguments="x:String" x:Key="in_ColumnStartWriteBigModel">Q</InArgument>
-                                        <InArgument x:TypeArguments="x:String" x:Key="in_ColumnEndWriteBigModel">T</InArgument>
-                                        <InArgument x:TypeArguments="x:String" x:Key="in_ColumnStartReadBigModel">AB</InArgument>
-                                        <InArgument x:TypeArguments="x:String" x:Key="in_ColumnEndReadBigModel">AD</InArgument>
+                                        <InArgument x:TypeArguments="x:String" x:Key="in_ProcessName">
+                                          <Literal x:TypeArguments="x:String">RS RD</Literal>
+                                        </InArgument>
+                                        <InArgument x:TypeArguments="x:String" x:Key="in_PathPaperByModel">
+                                          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_PathPaperByModel" />
+                                        </InArgument>
+                                        <InArgument x:TypeArguments="x:String" x:Key="in_SheetPaperByModel">
+                                          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_SheetPaperByModel" />
+                                        </InArgument>
+                                        <InArgument x:TypeArguments="x:String" x:Key="in_SheetPaper">
+                                          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_SheetPaper" />
+                                        </InArgument>
+                                        <InArgument x:TypeArguments="x:String" x:Key="in_FindRangePaste">
+                                          <Literal x:TypeArguments="x:String">N1:N10000</Literal>
+                                        </InArgument>
+                                        <InArgument x:TypeArguments="x:String" x:Key="in_ValueToFindPaste">
+                                          <Literal x:TypeArguments="x:String">WOT % Big Model</Literal>
+                                        </InArgument>
+                                        <InArgument x:TypeArguments="x:String" x:Key="in_FindRangeBigModelComp">
+                                          <Literal x:TypeArguments="x:String">AA1:AA10000</Literal>
+                                        </InArgument>
+                                        <InArgument x:TypeArguments="x:String" x:Key="in_FindBigModelComp">
+                                          <Literal x:TypeArguments="x:String">Big Model Comp</Literal>
+                                        </InArgument>
+                                        <InArgument x:TypeArguments="x:Boolean" x:Key="in_IsAdjustComposition">
+                                          <Literal x:TypeArguments="x:Boolean" />
+                                        </InArgument>
+                                        <InArgument x:TypeArguments="x:String" x:Key="in_ColumnStartWriteBigModel">
+                                          <Literal x:TypeArguments="x:String">Q</Literal>
+                                        </InArgument>
+                                        <InArgument x:TypeArguments="x:String" x:Key="in_ColumnEndWriteBigModel">
+                                          <Literal x:TypeArguments="x:String">T</Literal>
+                                        </InArgument>
+                                        <InArgument x:TypeArguments="x:String" x:Key="in_ColumnStartReadBigModel">
+                                          <Literal x:TypeArguments="x:String">AB</Literal>
+                                        </InArgument>
+                                        <InArgument x:TypeArguments="x:String" x:Key="in_ColumnEndReadBigModel">
+                                          <Literal x:TypeArguments="x:String">AD</Literal>
+                                        </InArgument>
+                                        <InArgument x:TypeArguments="x:String" x:Key="in_AdditionalCopyRange">
+                                          <Literal x:TypeArguments="x:String">AB77:AD77</Literal>
+                                        </InArgument>
                                       </ui:InvokeWorkflowFile.Arguments>
                                       <sap:WorkflowViewStateService.ViewState>
                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -1035,19 +1124,48 @@
                                     </ui:CommentOut>
                                     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke  Copy_Paste_Percentage_Big_Model RS OP Workflow - Input Paper By Model" sap:VirtualizedContainerService.HintSize="388,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_8" UnSafe="False" WorkflowFileName="Workflow\Process\Paper_By_Model\Copy_Paste_Percentage_Big_Model.xaml">
                                       <ui:InvokeWorkflowFile.Arguments>
-                                        <InArgument x:TypeArguments="x:String" x:Key="in_ProcessName">RS OP</InArgument>
-                                        <InArgument x:TypeArguments="x:String" x:Key="in_PathPaperByModel">[in_PathPaperByModel]</InArgument>
-                                        <InArgument x:TypeArguments="x:String" x:Key="in_SheetPaperByModel">[in_SheetPaperByModel]</InArgument>
-                                        <InArgument x:TypeArguments="x:String" x:Key="in_SheetPaper">[in_SheetPaper]</InArgument>
-                                        <InArgument x:TypeArguments="x:String" x:Key="in_FindRangePaste">AK1:AK10000</InArgument>
-                                        <InArgument x:TypeArguments="x:String" x:Key="in_ValueToFindPaste">WOT % Big Model</InArgument>
-                                        <InArgument x:TypeArguments="x:String" x:Key="in_FindRangeBigModelComp">AM1:AM10000</InArgument>
-                                        <InArgument x:TypeArguments="x:String" x:Key="in_FindBigModelComp">Big Model Comp</InArgument>
-                                        <InArgument x:TypeArguments="x:Boolean" x:Key="in_IsAdjustComposition">False</InArgument>
-                                        <InArgument x:TypeArguments="x:String" x:Key="in_ColumnStartWriteBigModel">AN</InArgument>
-                                        <InArgument x:TypeArguments="x:String" x:Key="in_ColumnEndWriteBigModel">AQ</InArgument>
-                                        <InArgument x:TypeArguments="x:String" x:Key="in_ColumnStartReadBigModel">AN</InArgument>
-                                        <InArgument x:TypeArguments="x:String" x:Key="in_ColumnEndReadBigModel">AP</InArgument>
+                                        <InArgument x:TypeArguments="x:String" x:Key="in_ProcessName">
+                                          <Literal x:TypeArguments="x:String">RS OP</Literal>
+                                        </InArgument>
+                                        <InArgument x:TypeArguments="x:String" x:Key="in_PathPaperByModel">
+                                          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_PathPaperByModel" />
+                                        </InArgument>
+                                        <InArgument x:TypeArguments="x:String" x:Key="in_SheetPaperByModel">
+                                          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_SheetPaperByModel" />
+                                        </InArgument>
+                                        <InArgument x:TypeArguments="x:String" x:Key="in_SheetPaper">
+                                          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_SheetPaper" />
+                                        </InArgument>
+                                        <InArgument x:TypeArguments="x:String" x:Key="in_FindRangePaste">
+                                          <Literal x:TypeArguments="x:String">AK1:AK10000</Literal>
+                                        </InArgument>
+                                        <InArgument x:TypeArguments="x:String" x:Key="in_ValueToFindPaste">
+                                          <Literal x:TypeArguments="x:String">WOT % Big Model</Literal>
+                                        </InArgument>
+                                        <InArgument x:TypeArguments="x:String" x:Key="in_FindRangeBigModelComp">
+                                          <Literal x:TypeArguments="x:String">AM1:AM10000</Literal>
+                                        </InArgument>
+                                        <InArgument x:TypeArguments="x:String" x:Key="in_FindBigModelComp">
+                                          <Literal x:TypeArguments="x:String">Big Model Comp</Literal>
+                                        </InArgument>
+                                        <InArgument x:TypeArguments="x:Boolean" x:Key="in_IsAdjustComposition">
+                                          <Literal x:TypeArguments="x:Boolean" />
+                                        </InArgument>
+                                        <InArgument x:TypeArguments="x:String" x:Key="in_ColumnStartWriteBigModel">
+                                          <Literal x:TypeArguments="x:String">AN</Literal>
+                                        </InArgument>
+                                        <InArgument x:TypeArguments="x:String" x:Key="in_ColumnEndWriteBigModel">
+                                          <Literal x:TypeArguments="x:String">AQ</Literal>
+                                        </InArgument>
+                                        <InArgument x:TypeArguments="x:String" x:Key="in_ColumnStartReadBigModel">
+                                          <Literal x:TypeArguments="x:String">AN</Literal>
+                                        </InArgument>
+                                        <InArgument x:TypeArguments="x:String" x:Key="in_ColumnEndReadBigModel">
+                                          <Literal x:TypeArguments="x:String">AP</Literal>
+                                        </InArgument>
+                                        <InArgument x:TypeArguments="x:String" x:Key="in_AdditionalCopyRange">
+                                          <Literal x:TypeArguments="x:String">AN77:AP77</Literal>
+                                        </InArgument>
                                       </ui:InvokeWorkflowFile.Arguments>
                                       <sap:WorkflowViewStateService.ViewState>
                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
